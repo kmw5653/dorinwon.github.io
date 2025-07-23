@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>도림원 - 부산 대표 보이차 교육기관</title>
+    <meta name="description" content="1991년부터 시작된 부산의 대표적인 보이차 전문 교육기관 도림원입니다. 전통적인 차 문화와 황궁다법을 배우세요.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'tea-primary': '#324d21',
+                        'tea-secondary': '#8b5925',
+                        'tea-accent': '#c19e5f',
+                        'tea-light': '#fefcf3',
+                        'tea-dark': '#333333',
+                    },
+                    fontFamily: {
+                        'korean': ['Noto Sans KR', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fefcf3;
+            scroll-behavior: smooth;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .fade-in {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.6s ease;
+        }
+        
+        .slide-up {
+            animation: slideUp 0.6s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            background: #000;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            border-radius: 12px;
+        }
+        
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: #324d21;
+        }
+        
+        .nav-link.active {
+            color: #324d21;
+            font-weight: 600;
+        }
+        
+        .section-padding {
+            padding: 4rem 0;
+        }
+        
+        @media (min-width: 1024px) {
+            .section-padding {
+                padding: 5rem 0;
+            }
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #fefcf3, white);
+        }
+        
+        .text-shadow {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        .tea-primary { color: #324d21; }
+        .tea-secondary { color: #8b5925; }
+        .tea-accent { color: #c19e5f; }
+        .tea-light { color: #fefcf3; }
+        .tea-dark { color: #333333; }
+        
+        .bg-tea-primary { background-color: #324d21; }
+        .bg-tea-secondary { background-color: #8b5925; }
+        .bg-tea-accent { background-color: #c19e5f; }
+        .bg-tea-light { background-color: #fefcf3; }
+        .bg-tea-dark { background-color: #333333; }
+        
+        .hover\:bg-tea-primary\/90:hover { background-color: rgba(50, 77, 33, 0.9); }
+        .hover\:bg-tea-primary:hover { background-color: #324d21; }
+        .hover\:text-white:hover { color: white; }
+        
+        .border-tea-primary { border-color: #324d21; }
+        
+        .bg-tea-accent\/20 { background-color: rgba(193, 158, 95, 0.2); }
+        .bg-tea-accent\/5 { background-color: rgba(193, 158, 95, 0.05); }
+        
+        .rounded-xl { border-radius: 0.75rem; }
+        .rounded-2xl { border-radius: 1rem; }
+        .rounded-lg { border-radius: 0.5rem; }
+        .shadow-lg { box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05); }
+        .shadow-2xl { box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); }
+        
+        .max-w-7xl { max-width: 80rem; }
+        .max-w-4xl { max-width: 56rem; }
+        .max-w-2xl { max-width: 42rem; }
+        
+        .space-y-8 > :not([hidden]) ~ :not([hidden]) { margin-top: 2rem; }
+        .space-y-6 > :not([hidden]) ~ :not([hidden]) { margin-top: 1.5rem; }
+        .space-y-4 > :not([hidden]) ~ :not([hidden]) { margin-top: 1rem; }
+        .space-y-3 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.75rem; }
+        .space-y-2 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.5rem; }
+        .space-x-8 > :not([hidden]) ~ :not([hidden]) { margin-left: 2rem; }
+        .space-x-4 > :not([hidden]) ~ :not([hidden]) { margin-left: 1rem; }
+        .space-x-3 > :not([hidden]) ~ :not([hidden]) { margin-left: 0.75rem; }
+        
+        .gap-12 { gap: 3rem; }
+        .gap-8 { gap: 2rem; }
+        .gap-6 { gap: 1.5rem; }
+        .gap-4 { gap: 1rem; }
+        
+        .grid { display: grid; }
+        .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+        .grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        
+        @media (min-width: 768px) {
+            .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        }
+        
+        @media (min-width: 1024px) {
+            .lg\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .lg\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        }
+        
+        .p-8 { padding: 2rem; }
+        .p-6 { padding: 1.5rem; }
+        .p-4 { padding: 1rem; }
+        .p-3 { padding: 0.75rem; }
+        
+        .px-8 { padding-left: 2rem; padding-right: 2rem; }
+        .px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+        .px-4 { padding-left: 1rem; padding-right: 1rem; }
+        .py-16 { padding-top: 4rem; padding-bottom: 4rem; }
+        .py-12 { padding-top: 3rem; padding-bottom: 3rem; }
+        .py-8 { padding-top: 2rem; padding-bottom: 2rem; }
+        .py-6 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+        .py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+        .py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+        
+        .mb-12 { margin-bottom: 3rem; }
+        .mb-8 { margin-bottom: 2rem; }
+        .mb-6 { margin-bottom: 1.5rem; }
+        .mb-4 { margin-bottom: 1rem; }
+        .mb-3 { margin-bottom: 0.75rem; }
+        .mb-2 { margin-bottom: 0.5rem; }
+        .mb-1 { margin-bottom: 0.25rem; }
+        
+        .mt-8 { margin-top: 2rem; }
+        .mt-6 { margin-top: 1.5rem; }
+        .mt-4 { margin-top: 1rem; }
+        .mt-2 { margin-top: 0.5rem; }
+        .mt-1 { margin-top: 0.25rem; }
+        
+        .mr-2 { margin-right: 0.5rem; }
+        .ml-2 { margin-left: 0.5rem; }
+        
+        .mx-auto { margin-left: auto; margin-right: auto; }
+        
+        .text-center { text-align: center; }
+        .text-left { text-align: left; }
+        
+        .text-5xl { font-size: 3rem; line-height: 1; }
+        .text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
+        .text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
+        .text-2xl { font-size: 1.5rem; line-height: 2rem; }
+        .text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+        .text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+        .text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+        
+        .font-bold { font-weight: 700; }
+        .font-semibold { font-weight: 600; }
+        .font-medium { font-weight: 500; }
+        
+        .leading-relaxed { line-height: 1.625; }
+        
+        .h-64 { height: 16rem; }
+        .h-48 { height: 12rem; }
+        .h-16 { height: 4rem; }
+        .h-12 { height: 3rem; }
+        .h-10 { height: 2.5rem; }
+        .h-auto { height: auto; }
+        
+        .w-full { width: 100%; }
+        .w-16 { width: 4rem; }
+        .w-12 { width: 3rem; }
+        .w-10 { width: 2.5rem; }
+        
+        .object-cover { object-fit: cover; }
+        
+        .flex { display: flex; }
+        .flex-col { flex-direction: column; }
+        .items-center { align-items: center; }
+        .items-start { align-items: flex-start; }
+        .justify-center { justify-content: center; }
+        .justify-between { justify-content: space-between; }
+        
+        .hidden { display: none; }
+        
+        @media (min-width: 768px) {
+            .md\:flex { display: flex; }
+            .md\:hidden { display: none; }
+        }
+        
+        @media (min-width: 1024px) {
+            .lg\:text-5xl { font-size: 3rem; line-height: 1; }
+            .lg\:text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
+            .lg\:text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
+            .lg\:py-20 { padding-top: 5rem; padding-bottom: 5rem; }
+            .lg\:px-8 { padding-left: 2rem; padding-right: 2rem; }
+        }
+        
+        .sticky { position: sticky; }
+        .top-0 { top: 0; }
+        .z-50 { z-index: 50; }
+        
+        .bg-white { background-color: white; }
+        .bg-gray-50 { background-color: #f9fafb; }
+        .bg-gray-200 { background-color: #e5e7eb; }
+        .bg-gray-300 { background-color: #d1d5db; }
+        .bg-gray-600 { background-color: #4b5563; }
+        .bg-gray-400 { background-color: #9ca3af; }
+        
+        .text-white { color: white; }
+        .text-gray-300 { color: #d1d5db; }
+        .text-gray-600 { color: #4b5563; }
+        .text-gray-700 { color: #374151; }
+        
+        .text-green-600 { color: #059669; }
+        .text-green-500 { color: #10b981; }
+        .text-amber-600 { color: #d97706; }
+        .text-amber-800 { color: #92400e; }
+        .text-amber-700 { color: #b45309; }
+        .text-blue-600 { color: #2563eb; }
+        .text-blue-500 { color: #3b82f6; }
+        .text-purple-600 { color: #9333ea; }
+        .text-purple-500 { color: #a855f7; }
+        .text-red-600 { color: #dc2626; }
+        .text-red-500 { color: #ef4444; }
+        .text-yellow-500 { color: #eab308; }
+        .text-orange-500 { color: #f97316; }
+        .text-teal-500 { color: #14b8a6; }
+        
+        .bg-green-50 { background-color: #f0fdf4; }
+        .bg-green-100 { background-color: #dcfce7; }
+        .bg-amber-50 { background-color: #fffbeb; }
+        .bg-amber-100 { background-color: #fef3c7; }
+        .bg-blue-50 { background-color: #eff6ff; }
+        .bg-blue-100 { background-color: #dbeafe; }
+        .bg-purple-100 { background-color: #f3e8ff; }
+        .bg-red-50 { background-color: #fef2f2; }
+        .bg-red-100 { background-color: #fee2e2; }
+        .bg-orange-50 { background-color: #fff7ed; }
+        .bg-orange-100 { background-color: #fed7aa; }
+        
+        .border { border-width: 1px; }
+        .border-2 { border-width: 2px; }
+        .border-t { border-top-width: 1px; }
+        .border-gray-200 { border-color: #e5e7eb; }
+        .border-gray-300 { border-color: #d1d5db; }
+        
+        .rounded-full { border-radius: 9999px; }
+        
+        .transition-all { transition: all 0.3s ease; }
+        .transition-colors { transition: color 0.3s ease; }
+        
+        .resize-vertical { resize: vertical; }
+        
+        .focus\:ring-2:focus { box-shadow: 0 0 0 2px rgba(50, 77, 33, 0.5); }
+        .focus\:ring-tea-primary:focus { box-shadow: 0 0 0 2px rgba(50, 77, 33, 0.5); }
+        .focus\:border-transparent:focus { border-color: transparent; }
+        
+        .sm\:px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+        .sm\:flex-row { flex-direction: row; }
+        .sm\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .sm\:col-span-2 { grid-column: span 2 / span 2; }
+        
+        @media (min-width: 640px) {
+            .sm\:px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+            .sm\:flex-row { flex-direction: row; }
+            .sm\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .sm\:col-span-2 { grid-column: span 2 / span 2; }
+        }
+        
+        .bg-gradient-to-br { background-image: linear-gradient(to bottom right, var(--tw-gradient-stops)); }
+        .from-green-50 { --tw-gradient-from: #f0fdf4; --tw-gradient-to: rgba(240, 253, 244, 0); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
+        .to-green-100 { --tw-gradient-to: #dcfce7; }
+        .from-amber-50 { --tw-gradient-from: #fffbeb; --tw-gradient-to: rgba(255, 251, 235, 0); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
+        .to-amber-100 { --tw-gradient-to: #fef3c7; }
+        .from-orange-50 { --tw-gradient-from: #fff7ed; --tw-gradient-to: rgba(255, 247, 237, 0); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
+        .to-orange-100 { --tw-gradient-to: #fed7aa; }
+        .from-blue-50 { --tw-gradient-from: #eff6ff; --tw-gradient-to: rgba(239, 246, 255, 0); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
+        .to-blue-100 { --tw-gradient-to: #dbeafe; }
+        .from-red-50 { --tw-gradient-from: #fef2f2; --tw-gradient-to: rgba(254, 242, 242, 0); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
+        .to-red-100 { --tw-gradient-to: #fee2e2; }
+        .from-tea-accent\/5 { --tw-gradient-from: rgba(193, 158, 95, 0.05); --tw-gradient-to: rgba(193, 158, 95, 0); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
+        .to-tea-light { --tw-gradient-to: #fefcf3; }
+        
+        /* YouTube Player Specific Styles */
+        .aspect-video {
+            aspect-ratio: 16/9;
+        }
+        
+        .gap-2 {
+            gap: 0.5rem;
+        }
+        
+        .flex-wrap {
+            flex-wrap: wrap;
+        }
+        
+        .bg-opacity-20 {
+            background-color: rgba(193, 158, 95, 0.2);
+        }
+        
+        .text-xs {
+            font-size: 0.75rem;
+            line-height: 1rem;
+        }
+        
+        .border-0 {
+            border-width: 0;
+        }
+        
+        .overflow-hidden {
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="bg-tea-light">
+    <!-- Header -->
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-4">
+                    <img src="attached_assets/도림원 로고_1750859453144.png" alt="도림원 로고" class="w-12 h-12 rounded-lg object-cover">
+                    <div>
+                        <h1 class="text-xl font-bold tea-primary">도림원</h1>
+                        <p class="text-sm tea-secondary">한중차문화연구회</p>
+                    </div>
+                </div>
+                
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link font-medium tea-dark hover:tea-primary">홈</a>
+                    <a href="#about" class="nav-link font-medium tea-dark hover:tea-primary">도림원 소개</a>
+                    <a href="#basics" class="nav-link font-medium tea-dark hover:tea-primary">보이차 기초</a>
+                    <a href="#process" class="nav-link font-medium tea-dark hover:tea-primary">제조과정</a>
+                    <a href="#brewing" class="nav-link font-medium tea-dark hover:tea-primary">우리는법</a>
+                    <a href="#videos" class="nav-link font-medium tea-dark hover:tea-primary">동영상 강의</a>
+                    <a href="#storage" class="nav-link font-medium tea-dark hover:tea-primary">보관법</a>
+                    <a href="#benefits" class="nav-link font-medium tea-dark hover:tea-primary">효능</a>
+                    <a href="#ancient-tea" class="nav-link font-medium tea-dark hover:tea-primary">도림원 야생 고수차</a>
+                    <a href="#contact" class="nav-link font-medium tea-dark hover:tea-primary">문의</a>
+                </nav>
+                
+                <button class="md:hidden">
+                    <i class="fas fa-bars tea-primary text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient section-padding">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <h2 class="text-4xl lg:text-5xl font-bold tea-primary mb-6 text-shadow">
+                        전통 보이차의<br>세계로 초대합니다
+                    </h2>
+                    <p class="text-lg tea-dark mb-8 leading-relaxed">
+                        중국 운남성의 대엽종 찻잎으로 만든 후발효차, 보이차의 모든 것을 배워보세요.
+                        전통적인 제조과정부터 현대적인 우리는 방법까지 체계적으로 학습할 수 있습니다.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#about" class="bg-tea-primary text-white hover:bg-tea-primary/90 px-8 py-3 rounded-lg text-center font-medium transition-all">
+                            자세히 알아보기
+                        </a>
+                        <a href="#videos" class="border-2 border-tea-primary tea-primary hover:bg-tea-primary hover:text-white px-8 py-3 rounded-lg text-center font-medium transition-all">
+                            동영상 강의 보기
+                        </a>
+                    </div>
+                </div>
+                <div class="slide-up">
+                    <img src="https://images.unsplash.com/photo-1571934811356-5cc061b6821f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="전통 차 우리는 모습" class="w-full h-auto rounded-2xl shadow-2xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl lg:text-4xl font-bold tea-primary mb-4">도림원 소개</h2>
+                <p class="text-lg tea-dark max-w-2xl mx-auto">1991년부터 시작된 부산의 대표적인 보이차 전문 교육기관입니다</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-start">
+                <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                    <h3 class="text-2xl font-bold tea-primary mb-6">기관 소개</h3>
+                    <div class="bg-tea-accent bg-opacity-20 p-6 rounded-xl mb-6">
+                        <p class="text-lg font-medium tea-dark">
+                            도림원은 1991년 중구 대청동에서 시작하여 2008년 현재 위치로 이전한 보이차 전문 교육기관입니다.
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-leaf tea-accent text-xl"></i>
+                            <span class="tea-dark">한중차문화연구회 소속</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-graduation-cap tea-accent text-xl"></i>
+                            <span class="tea-dark">보이차 전문 교육기관</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-plane tea-accent text-xl"></i>
+                            <span class="tea-dark">중국 현지에서 직접 차 제작 및 수입</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-crown tea-accent text-xl"></i>
+                            <span class="tea-dark">황궁다법 전수 교육</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-users tea-accent text-xl"></i>
+                            <span class="tea-dark">일주일에 한 번 정기 차모임</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-calendar-alt tea-accent text-xl"></i>
+                            <span class="tea-dark">기본과정 6개월, 사범과정 2년</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 border-t border-gray-200 mt-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+                            <div>
+                                <span class="font-semibold tea-primary">원장:</span>
+                                <span class="tea-dark ml-2">이근주</span>
+                            </div>
+                            <div>
+                                <span class="font-semibold tea-primary">설립:</span>
+                                <span class="tea-dark ml-2">1991년</span>
+                            </div>
+                            <div class="sm:col-span-2">
+                                <span class="font-semibold tea-primary">위치:</span>
+                                <span class="tea-dark ml-2">부산광역시 남구 대연동 수영로 225 3층</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                    <h3 class="text-2xl font-bold tea-primary mb-6">교육 프로그램</h3>
+                    <div class="space-y-6">
+                        <div class="bg-tea-light p-6 rounded-xl">
+                            <h4 class="font-semibold tea-primary mb-3">중국 6대차 교육</h4>
+                            <p class="tea-dark text-sm">녹차, 청차, 홍차, 백차, 황차, 흑차의 특성과 제조법을 학습합니다.</p>
+                        </div>
+                        <div class="bg-tea-light p-6 rounded-xl">
+                            <h4 class="font-semibold tea-primary mb-3">보이차 제다 및 품평</h4>
+                            <p class="tea-dark text-sm">직접 차를 만들고 품질을 평가하는 전문적인 기술을 익힙니다.</p>
+                        </div>
+                        <div class="bg-tea-light p-6 rounded-xl">
+                            <h4 class="font-semibold tea-primary mb-3">황궁다법 시연</h4>
+                            <p class="tea-dark text-sm">전통적인 궁중 차 우리기 방법을 배우고 실습합니다.</p>
+                        </div>
+                        <div class="bg-tea-light p-6 rounded-xl">
+                            <h4 class="font-semibold tea-primary mb-3">차문화 연구 및 교육</h4>
+                            <p class="tea-dark text-sm">한중 차문화의 역사와 현대적 발전 방향을 연구합니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Basics Section -->
+    <section id="basics" class="bg-white section-padding">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl lg:text-4xl font-bold tea-primary mb-4">보이차 기초 지식</h2>
+                <p class="text-lg tea-dark max-w-2xl mx-auto">보이차의 정의부터 종류별 특성까지 기초적인 지식을 알아보세요</p>
+            </div>
+            
+            <div class="mb-12">
+                <div class="bg-tea-light rounded-xl p-8 lg:p-12 card-hover">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl lg:text-3xl font-bold tea-primary mb-4">보이차란?</h3>
+                        <p class="text-lg tea-dark max-w-2xl mx-auto">
+                            중국 운남성의 대엽종 찻잎으로 만든 후발효차입니다.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-6">
+                        <h4 class="text-xl font-semibold tea-primary mb-4 text-center">필수 조건</h4>
+                        <div class="grid md:grid-cols-3 gap-6">
+                            <div class="text-center">
+                                <i class="fas fa-map-marker-alt text-3xl tea-accent mb-3"></i>
+                                <h5 class="font-semibold tea-primary mb-2">중국 운남지역</h5>
+                                <p class="text-sm tea-dark">특정 지역의 기후와 토양</p>
+                            </div>
+                            <div class="text-center">
+                                <i class="fas fa-leaf text-3xl tea-accent mb-3"></i>
+                                <h5 class="font-semibold tea-primary mb-2">대엽종</h5>
+                                <p class="text-sm tea-dark">큰 잎을 가진 차나무 품종</p>
+                            </div>
+                            <div class="text-center">
+                                <i class="fas fa-sun text-3xl tea-accent mb-3"></i>
+                                <h5 class="font-semibold tea-primary mb-2">쇄청공법</h5>
+                                <p class="text-sm tea-dark">햇볕에 자연건조하는 방법</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="text-2xl lg:text-3xl font-bold tea-primary mb-8 text-center">보이차의 종류</h3>
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <div class="bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl p-8 card-hover">
+                        <div class="text-center mb-6">
+                            <i class="fas fa-sun text-4xl text-orange-500 mb-4"></i>
+                            <h4 class="text-2xl font-bold tea-primary mb-2">생차 (生茶)</h4>
+                            <p class="tea-secondary">자연발효를 통한 차</p>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-eye text-orange-500"></i>
+                                <span class="tea-dark">맑은 오렌지빛 탕색</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-snowflake text-orange-500"></i>
+                                <span class="tea-dark">시원하고 맑은 맛</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-clock text-orange-500"></i>
+                                <span class="tea-dark">시간이 지날수록 풍미 증가</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-amber-50 to-amber-100 rounded-xl p-8 card-hover">
+                        <div class="text-center mb-6">
+                            <i class="fas fa-fire text-4xl text-amber-600 mb-4"></i>
+                            <h4 class="text-2xl font-bold tea-primary mb-2">숙차 (熟茶)</h4>
+                            <p class="tea-secondary">인공발효를 거친 차</p>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-eye text-amber-600"></i>
+                                <span class="tea-dark">진한 갈색 탕색</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-heart text-amber-600"></i>
+                                <span class="tea-dark">부드럽고 순한 맛</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-calendar text-amber-600"></i>
+                                <span class="tea-dark">1973년 악퇴공법으로 개발</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="bg-tea-light py-16 lg:py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl lg:text-4xl font-bold tea-primary mb-4">보이차 제조 과정</h2>
+                <p class="text-lg tea-dark max-w-2xl mx-auto">전통적인 6단계 제조과정을 통해 만들어지는 보이차의 비밀을 알아보세요</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-center mb-12">
+                <div>
+                    <img src="attached_assets/1_1752229676873.png" alt="보이차 제조 과정 단계별 설명" class="w-full h-auto rounded-2xl shadow-lg">
+                </div>
+                <div class="space-y-6">
+                    <div class="bg-white rounded-xl p-6 card-hover">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-tea-primary text-white w-10 h-10 rounded-full flex items-center justify-center font-bold">1</div>
+                            <div>
+                                <h4 class="text-lg font-semibold tea-primary mb-2">채엽 (採葉)</h4>
+                                <p class="tea-dark mb-2">운남 대엽종 차나무에서 찻잎 따기</p>
+                                <p class="text-sm tea-secondary">시기: 2월말~4월 봄차가 최상품</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-6 card-hover">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-tea-primary text-white w-10 h-10 rounded-full flex items-center justify-center font-bold">2</div>
+                            <div>
+                                <h4 class="text-lg font-semibold tea-primary mb-2">위조 (萎凋)</h4>
+                                <p class="tea-dark">그늘에서 자연스럽게 시들리기</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-6 card-hover">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-tea-primary text-white w-10 h-10 rounded-full flex items-center justify-center font-bold">3</div>
+                            <div>
+                                <h4 class="text-lg font-semibold tea-primary mb-2">살청 (殺青)</h4>
+                                <p class="tea-dark">적당한 열로 산화효소 변성, 후발효 위해 일부 효소 활성 유지</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white rounded-xl p-6 text-center card-hover">
+                    <div class="bg-tea-primary text-white w-12 h-12 rounded-full flex items-center justify-center font-bold mx-auto mb-4">4</div>
+                    <h4 class="text-lg font-semibold tea-primary mb-2">유념 (揉捻)</h4>
+                    <p class="tea-dark">찻잎을 비비고 틀어서 세포벽 파괴</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 text-center card-hover">
+                    <div class="bg-tea-primary text-white w-12 h-12 rounded-full flex items-center justify-center font-bold mx-auto mb-4">5</div>
+                    <h4 class="text-lg font-semibold tea-primary mb-2">건조 (乾燥)</h4>
+                    <p class="tea-dark">햇볕에 말려 수분 제거</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 text-center card-hover">
+                    <div class="bg-tea-primary text-white w-12 h-12 rounded-full flex items-center justify-center font-bold mx-auto mb-4">6</div>
+                    <h4 class="text-lg font-semibold tea-primary mb-2">압제 (壓製)</h4>
+                    <p class="tea-dark">병차, 산차 등 다양한 형태로 압축</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brewing Section -->
+    <section id="brewing" class="bg-white section-padding">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl lg:text-4xl font-bold tea-primary mb-4">보이차 우리는 법</h2>
+                <p class="text-lg tea-dark max-w-2xl mx-auto">올바른 보이차 우리기 방법과 주의사항을 알아보세요</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-8 mb-12">
+                <div class="bg-gradient-to-br from-red-50 to-red-100 rounded-xl p-8 card-hover">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-thermometer-half text-4xl text-red-600 mb-4"></i>
+                        <h3 class="text-2xl font-bold tea-primary mb-2">차호법 (茶壺法)</h3>
+                        <p class="tea-secondary">찻주전자를 사용하여 우리는 방법</p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-white rounded-lg p-4">
+                            <h4 class="font-semibold tea-primary mb-2">물 온도</h4>
+                            <p class="tea-dark">생차: 95-98°C | 숙차: 98-100°C</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4">
+                            <h4 class="font-semibold tea-primary mb-2">우린 시간</h4>
+                            <p class="tea-dark">1회: 10-15초 | 2회: 15-20초 | 3회 이후: 점진적 증가</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-8 card-hover">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-coffee text-4xl text-blue-600 mb-4"></i>
+                        <h3 class="text-2xl font-bold tea-primary mb-2">자차법 (煮茶法)</h3>
+                        <p class="tea-secondary">주전자에 차와 물을 함께 넣고 끓이는 방법</p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-white rounded-lg p-4">
+                            <h4 class="font-semibold tea-primary mb-2">비율</h4>
+                            <p class="tea-dark">물 2L당 차 5-6g</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4">
+                            <h4 class="font-semibold tea-primary mb-2">시간</h4>
+                            <p class="tea-dark">10-15분 보글보글</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-tea-light rounded-xl p-8">
+                <h3 class="text-2xl font-bold tea-primary mb-6 text-center">우리기 단계</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-white rounded-xl p-6 text-center card-hover">
+                        <div class="bg-tea-primary text-white w-12 h-12 rounded-full flex items-center justify-center font-bold mx-auto mb-4">1</div>
+                        <h4 class="text-lg font-semibold tea-primary mb-2">세차 (洗茶)</h4>
+                        <p class="tea-dark">첫 번째 우린 물은 버리고 찻잎을 깨끗이 씻어줍니다</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-6 text-center card-hover">
+                        <div class="bg-tea-primary text-white w-12 h-12 rounded-full flex items-center justify-center font-bold mx-auto mb-4">2</div>
+                        <h4 class="text-lg font-semibold tea-primary mb-2">1차 우리기</h4>
+                        <p class="tea-dark">10-15초간 우린 후 찻물을 따라냅니다</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-6 text-center card-hover">
+                        <div class="bg-tea-primary text-white w-12 h-12 rounded-full flex items-center justify-center font-bold mx-auto mb-4">3</div>
+                        <h4 class="text-lg font-semibold tea-primary mb-2">2차 이후</h4>
+                        <p class="tea-dark">점진적으로 우린 시간을 늘려가며 맛의 변화를 즐깁니다</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Videos Section -->
+    <section id="videos" class="bg-tea-light py-16 lg:py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl lg:text-4xl font-bold tea-primary mb-4">동영상 강의</h2>
+                <p class="text-lg tea-dark max-w-2xl mx-auto">전문가의 실제 시연을 통해 보이차의 모든 것을 배워보세요</p>
+            </div>
+
+            <div class="mb-12">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="video-container">
+                        <video controls poster="https://images.unsplash.com/photo-1571934811356-5cc061b6821f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=675">
+                            <source src="attached_assets/도림원_1750857897242.mp4" type="video/mp4">
+                            귀하의 브라우저는 비디오 태그를 지원하지 않습니다.
+                        </video>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold tea-primary mb-2">도림원 소개 영상</h3>
+                        <p class="tea-dark">도림원의 역사와 교육 프로그램에 대한 상세한 소개를 담은 영상입니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-8">
+                <!-- 도림원 황궁다법 시연 -->
+                <div class="bg-white rounded-2xl p-6 shadow-lg card-hover">
+                    <div class="text-lg font-semibold tea-primary mb-4 text-center flex items-center justify-center gap-2">
+                        <i class="fas fa-play-circle"></i>
+                        도림원 황궁다법 시연
+                    </div>
+                    <div class="aspect-video mb-4">
+                        <iframe
+                            src="https://www.youtube.com/embed/gdjhO5vf1TE?rel=0&modestbranding=1&showinfo=0"
+                            title="도림원 황궁다법 시연"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen
+                            class="w-full h-full rounded-lg border-0"
+                        ></iframe>
+                    </div>
+                    <p class="tea-secondary text-center text-sm mb-4">도림원에서 진행하는 전통적인 궁중 차 우리기 방법의 아름다운 의식을 감상해보세요.</p>
+                    <div class="flex justify-center gap-2 flex-wrap">
+                        <span class="px-3 py-1 text-xs bg-tea-accent bg-opacity-20 tea-primary rounded-full">YouTube</span>
+                        <span class="px-3 py-1 text-xs bg-tea-accent bg-opacity-20 tea-primary rounded-full">HD화질</span>
+                    </div>
+                </div>
+                
+                <!-- 2열 영상 - 첫 번째 줄 -->
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white rounded-2xl p-6 shadow-lg card-hover">
+                        <div class="text-lg font-semibold tea-primary mb-4 text-center flex items-center justify-center gap-2">
+                            <i class="fas fa-play-circle"></i>
+                            도림원 말차시연
+                        </div>
+                        <div class="aspect-video mb-4">
+                            <iframe
+                                src="https://www.youtube.com/embed/kUe1RusRJ9c?rel=0&modestbranding=1&showinfo=0"
+                                title="도림원 말차시연"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen
+                                class="w-full h-full rounded-lg border-0"
+                            ></iframe>
+                        </div>
+                        <p class="tea-secondary text-center text-sm mb-4">도림원에서 진행하는 전통 말차 우리기 방법과 의식을 배워보세요.</p>
+                        <div class="flex justify-center gap-2 flex-wrap">
+                            <span class="px-3 py-1 text-xs bg-tea-accent bg-opacity-20 tea-primary rounded-full">YouTube</span>
+                            <span class="px-3 py-1 text-xs bg-tea-accent bg-opacity-20 tea-primary rounded-full">말차</span>
+                            <span class="px-3 py-1 text-xs bg-tea-accent bg-opacity-20 tea-primary rounded-full">HD화질</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-2xl p-6 shadow-lg card-hover">
+                        <div class="text-lg font-semibold tea-primary mb-4 text-center flex items-center justify-center gap-2">
+                            <i class="fas fa-play-circle"></i>
+                            보이차 기본상식
+                        </div>
+                        <div class="aspect-video mb-4">
+                            <iframe
+                                src="https://www.youtube.com/embed/_g-LPoaOHmU?rel=0&modestbranding=1&showinfo=0"
+                                title="보이차 기본상식"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen
+                                class="w-full h-full rounded-lg border-0"
+                            ></iframe>
+                        </div>
+                        <p class="tea-secondary text-center text-sm mb-4">보이차에 대한 기본적인 지식과 상식을 쉽게 배워보세요.</p>
+                        <div class="flex justify-center gap-2 flex-wrap">
+                            <span class="px-3 py-1 text-xs bg-tea-accent bg-opacity-20 tea-primary rounded-full">YouTube</span>
+                            <span class="px-3 py-1 text-xs bg-tea-accent bg-opacity-20 tea-primary rounded-full">기초교육</span>
+                            <span class="px-3 py-1 text-xs bg-tea-accent bg-opacity-20 tea-primary rounded-full">HD화질</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 2열 영상 - 두 번째 줄 -->
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white rounded-2xl p-6 shadow-lg card-hover">
+                        <div class="text-lg font-semibold tea-primary mb-4 text-center flex items-center justify-center gap-2">
+                            <i class="fas fa-play-circle"></i>
+                            보이차 우리는 방법
+                        </div>
+                        <div class="aspect-video mb-4">
+                            <iframe
+                                src="https://www.youtube.com/embed/ijGffu9hU7g?rel=0&modestbranding=1&showinfo=0"
+                                title="보이차 우리는 방법"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen
+                                class="w-full h-full rounded-lg border-0"
+                            ></iframe>
+                        </div>
+                        <p class="tea-secondary text-center text-sm mb-4">차호법과 자차법의 실제 시연을 통해 올바른 우리기 방법을 배워보세요.</p>
+                        <div class="flex justify-center gap-2 flex-wrap">
+                            <span class="px-3 py-1 text-xs bg-tea-accent bg-opacity-20 tea-primary rounded-full">YouTube</span>
+                            <span class="px-3 py-1 text-xs bg-tea-accent bg-opacity-20 tea-primary rounded-full">실습</span>
+                            <span class="px-3 py-1 text-xs bg-tea-accent bg-opacity-20 tea-primary rounded-full">HD화질</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-2xl p-6 shadow-lg card-hover">
+                        <div class="text-lg font-semibold tea-primary mb-4 text-center flex items-center justify-center gap-2">
+                            <i class="fas fa-play-circle"></i>
+                            보이차 심화과정
+                        </div>
+                        <div class="aspect-video mb-4">
+                            <iframe
+                                src="https://www.youtube.com/embed/-TU8-E5Mq0E?rel=0&modestbranding=1&showinfo=0"
+                                title="보이차 심화과정"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen
+                                class="w-full h-full rounded-lg border-0"
+                            ></iframe>
+                        </div>
+                        <p class="tea-secondary text-center text-sm mb-4">보이차의 깊이 있는 지식과 고급 기법을 익혀보세요.</p>
+                        <div class="flex justify-center gap-2 flex-wrap">
+                            <span class="px-3 py-1 text-xs bg-tea-accent bg-opacity-20 tea-primary rounded-full">YouTube</span>
+                            <span class="px-3 py-1 text-xs bg-tea-accent bg-opacity-20 tea-primary rounded-full">고급과정</span>
+                            <span class="px-3 py-1 text-xs bg-tea-accent bg-opacity-20 tea-primary rounded-full">HD화질</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Storage Section -->
+    <section id="storage" class="bg-white section-padding">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl lg:text-4xl font-bold tea-primary mb-4">보이차 보관법</h2>
+                <p class="text-lg tea-dark max-w-2xl mx-auto">보이차의 품질을 유지하고 숙성을 도와주는 올바른 보관 방법을 알아보세요</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-8">
+                <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-8 card-hover">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-check-circle text-4xl text-green-600 mb-4"></i>
+                        <h3 class="text-2xl font-bold tea-primary mb-2">올바른 보관법</h3>
+                        <p class="tea-secondary">생차의 자연 숙성을 위한 환경</p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-wind text-green-600"></i>
+                            <span class="tea-dark">통풍이 잘 되는 곳</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-sun text-green-600"></i>
+                            <span class="tea-dark">직사광선을 피한 곳</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-tint text-green-600"></i>
+                            <span class="tea-dark">습도 60-70% 유지</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-thermometer-half text-green-600"></i>
+                            <span class="tea-dark">온도 20-25°C</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-ban text-green-600"></i>
+                            <span class="tea-dark">냄새가 없는 곳</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-br from-red-50 to-red-100 rounded-xl p-8 card-hover">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-times-circle text-4xl text-red-600 mb-4"></i>
+                        <h3 class="text-2xl font-bold tea-primary mb-2">주의사항</h3>
+                        <p class="tea-secondary">보관 시 피해야 할 사항들</p>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-snowflake text-red-600"></i>
+                            <span class="tea-dark">냉장고 보관 금지</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-box text-red-600"></i>
+                            <span class="tea-dark">밀폐용기 사용 금지</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-smoking text-red-600"></i>
+                            <span class="tea-dark">담배 냄새 주의</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-utensils text-red-600"></i>
+                            <span class="tea-dark">음식 냄새 주의</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-eye text-red-600"></i>
+                            <span class="tea-dark">곰팡이 발생 주의</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="bg-tea-light section-padding">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl lg:text-4xl font-bold tea-primary mb-4">보이차의 효능</h2>
+                <p class="text-lg tea-dark max-w-2xl mx-auto">오랜 세월 동안 검증된 보이차의 건강 효능을 알아보세요</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl p-8 text-center card-hover">
+                    <i class="fas fa-heart text-4xl text-red-500 mb-4"></i>
+                    <h3 class="text-xl font-bold tea-primary mb-4">심혈관 건강</h3>
+                    <p class="tea-dark">콜레스테롤 수치를 낮추고 혈압을 안정시켜 심혈관 질환 예방에 도움이 됩니다.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-8 text-center card-hover">
+                    <i class="fas fa-weight text-4xl text-green-500 mb-4"></i>
+                    <h3 class="text-xl font-bold tea-primary mb-4">체중 관리</h3>
+                    <p class="tea-dark">지방 분해를 촉진하고 신진대사를 활성화하여 체중 관리에 효과적입니다.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-8 text-center card-hover">
+                    <i class="fas fa-shield-alt text-4xl text-blue-500 mb-4"></i>
+                    <h3 class="text-xl font-bold tea-primary mb-4">항산화 효과</h3>
+                    <p class="tea-dark">풍부한 폴리페놀 성분으로 활성산소를 제거하고 노화를 방지합니다.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-8 text-center card-hover">
+                    <i class="fas fa-brain text-4xl text-purple-500 mb-4"></i>
+                    <h3 class="text-xl font-bold tea-primary mb-4">정신 건강</h3>
+                    <p class="tea-dark">스트레스 완화와 집중력 향상에 도움이 되며 마음의 안정을 가져다줍니다.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-8 text-center card-hover">
+                    <i class="fas fa-leaf text-4xl text-teal-500 mb-4"></i>
+                    <h3 class="text-xl font-bold tea-primary mb-4">해독 작용</h3>
+                    <p class="tea-dark">체내 독소를 배출하고 간 기능을 개선하여 자연스러운 디톡스 효과를 제공합니다.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-8 text-center card-hover">
+                    <i class="fas fa-fire text-4xl text-orange-500 mb-4"></i>
+                    <h3 class="text-xl font-bold tea-primary mb-4">소화 개선</h3>
+                    <p class="tea-dark">소화액 분비를 촉진하고 장 건강을 개선하여 소화 불량을 예방합니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ancient Tea Section -->
+    <section id="ancient-tea" class="bg-white py-16 lg:py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl lg:text-4xl font-bold tea-primary mb-4">도림원 야생 고수차</h2>
+                <p class="text-lg tea-dark max-w-2xl mx-auto">300년 이상 된 도림원 야생 고수차를 만나보세요</p>
+            </div>
+            
+            <!-- Ancient Tea Description -->
+            <div class="mb-12 space-y-8">
+                <div class="bg-tea-light rounded-xl p-8">
+                    <h3 class="text-2xl font-bold tea-primary mb-6 text-center">야생 고수차란?</h3>
+                    <p class="text-lg tea-dark max-w-4xl mx-auto leading-relaxed text-center mb-8">
+                        300년 이상의 오래된 차나무에서 자연스럽게 자란 찻잎으로 만든 최고급 보이차입니다. 
+                        인공적인 재배 없이 자연 환경에서 자란 차나무의 깊은 향과 풍부한 미네랄이 특징입니다.
+                    </p>
+                    
+                    <div class="grid md:grid-cols-3 gap-6 mb-8">
+                        <div class="text-center">
+                            <div class="bg-amber-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-tree text-amber-600 text-2xl"></i>
+                            </div>
+                            <h4 class="font-semibold tea-primary">300년 이상 고차수</h4>
+                            <p class="text-sm tea-secondary">오랜 세월 자연에서 자란 차나무</p>
+                        </div>
+                        
+                        <div class="text-center">
+                            <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-mountain text-green-600 text-2xl"></i>
+                            </div>
+                            <h4 class="font-semibold tea-primary">야생 자연 환경</h4>
+                            <p class="text-sm tea-secondary">깨끗한 자연 환경에서 자란 무공해</p>
+                        </div>
+                        
+                        <div class="text-center">
+                            <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-gem text-purple-600 text-2xl"></i>
+                            </div>
+                            <h4 class="font-semibold tea-primary">희귀성과 품격</h4>
+                            <p class="text-sm tea-secondary">한정된 수량의 프리미엄 차</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ancient Tea Characteristics -->
+                <div class="bg-gradient-to-br from-tea-accent/5 to-tea-light rounded-xl p-8">
+                    <h3 class="text-2xl font-bold tea-primary mb-6 text-center">도림원 야생 고수차의 특징</h3>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-semibold tea-primary mb-4">
+                                <i class="fas fa-star mr-2 text-yellow-500"></i>품질 특성
+                            </h4>
+                            <ul class="space-y-2 tea-dark">
+                                <li>• 300년 이상 고차수에서 채취한 희귀 찻잎</li>
+                                <li>• 자연 환경에서 자란 무공해 야생차</li>
+                                <li>• 깊고 진한 향과 독특한 단맛</li>
+                                <li>• 풍부한 미네랄과 천연 영양소</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold tea-primary mb-4">
+                                <i class="fas fa-leaf mr-2 text-green-500"></i>음용 가치
+                            </h4>
+                            <ul class="space-y-2 tea-dark">
+                                <li>• 일반 보이차보다 뛰어난 건강 효능</li>
+                                <li>• 시간이 지날수록 더욱 깊어지는 맛</li>
+                                <li>• 희소성과 수집 가치</li>
+                                <li>• 전문가가 인정하는 최고급 품질</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tea Gallery -->
+            <div class="space-y-8">
+                <!-- Row 1: Tea Warehouse and Stacked Teas -->
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                        <div class="p-6">
+                            <img src="attached_assets/KakaoTalk_20250710_131818970_1752201381264.jpg" alt="도림원 보이차 창고" class="w-full h-64 object-cover rounded-lg">
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                        <div class="p-6">
+                            <img src="attached_assets/KakaoTalk_20250710_131818970_01_1752201381265.jpg" alt="전시용 고급 병차" class="w-full h-64 object-cover rounded-lg">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 2: Tea Detail and Label -->
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                        <div class="p-6">
+                            <img src="attached_assets/KakaoTalk_20250710_131818970_02_1752201381266.jpg" alt="보이차 내부 모습" class="w-full h-64 object-cover rounded-lg">
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                        <div class="p-6">
+                            <img src="attached_assets/KakaoTalk_20250710_131818970_03_1752201381266.jpg" alt="차림원 고급 라벨" class="w-full h-64 object-cover rounded-lg">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 3: White Label Teas -->
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                        <div class="p-6">
+                            <img src="attached_assets/KakaoTalk_20250710_131818970_04_1752201381267.jpg" alt="차림원 생차 컬렉션" class="w-full h-64 object-cover rounded-lg">
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                        <div class="p-6">
+                            <img src="attached_assets/KakaoTalk_20250710_131818970_05_1752201381267.jpg" alt="프리미엄 병차 세트" class="w-full h-64 object-cover rounded-lg">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 4: Various Tea Types -->
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                        <div class="p-6">
+                            <img src="attached_assets/KakaoTalk_20250710_131818970_06_1752201381267.jpg" alt="크기별 병차 비교" class="w-full h-64 object-cover rounded-lg">
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                        <div class="p-6">
+                            <img src="attached_assets/KakaoTalk_20250710_131818970_07_1752201381268.jpg" alt="고수차 특별 라벨" class="w-full h-64 object-cover rounded-lg">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 5: Special Collections -->
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                        <div class="p-6">
+                            <img src="attached_assets/KakaoTalk_20250710_131818970_08_1752201381268.jpg" alt="도림원 특별 컬렉션" class="w-full h-64 object-cover rounded-lg">
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                        <div class="p-6">
+                            <img src="attached_assets/KakaoTalk_20250710_131818970_09_1752201381268.jpg" alt="원시림 고차" class="w-full h-64 object-cover rounded-lg">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 6: Final Tea Collections -->
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                        <div class="p-6">
+                            <img src="attached_assets/KakaoTalk_20250710_131818970_10_1752201381269.jpg" alt="차림원 야생차" class="w-full h-64 object-cover rounded-lg">
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                        <div class="p-6">
+                            <img src="attached_assets/KakaoTalk_20250710_131818970_11_1752201381269.jpg" alt="마스터 블렌드" class="w-full h-64 object-cover rounded-lg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-tea-light section-padding">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl lg:text-4xl font-bold tea-primary mb-4">문의 및 방문</h2>
+                <p class="text-lg tea-dark max-w-2xl mx-auto">보이차에 대한 궁금한 점이나 수업 문의는 언제든지 연락해 주세요</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <h3 class="text-2xl font-bold tea-primary mb-6">연락처 정보</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <i class="fas fa-map-marker-alt text-2xl tea-accent mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold tea-primary mb-1">주소</h4>
+                                <p class="tea-dark">부산광역시 남구 대연동 수영로 225 3층</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <i class="fas fa-phone text-2xl tea-accent mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold tea-primary mb-1">전화번호</h4>
+                                <p class="tea-dark">051-645-8858</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <i class="fas fa-envelope text-2xl tea-accent mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold tea-primary mb-1">이메일</h4>
+                                <p class="tea-dark">Dorimwon@naver.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <i class="fas fa-clock text-2xl tea-accent mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold tea-primary mb-1">운영시간</h4>
+                                <div class="tea-dark">
+                                    <p>평일, 토요일: 오전 10시 - 오후 6시</p>
+                                    <p>일요일: 휴무</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 pt-6 border-t border-gray-300">
+                        <h4 class="font-semibold tea-primary mb-4">교통편</h4>
+                        <div class="space-y-2 tea-dark text-sm">
+                            <p>• 지하철 2호선 대연역 1번 출구 도보 5분</p>
+                            <p>• 버스 83, 131, 301번 대연동 정류장 하차</p>
+                            <p>• 주차 공간 제한으로 대중교통 이용 권장</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <h3 class="text-2xl font-bold tea-primary mb-6">문의 양식</h3>
+                    
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium tea-primary mb-2">이름 *</label>
+                            <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-tea-primary focus:border-transparent" placeholder="성함을 입력해 주세요">
+                        </div>
+                        
+                        <div>
+                            <label for="phone" class="block text-sm font-medium tea-primary mb-2">연락처 *</label>
+                            <input type="tel" id="phone" name="phone" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-tea-primary focus:border-transparent" placeholder="010-XXXX-XXXX">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium tea-primary mb-2">이메일</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-tea-primary focus:border-transparent" placeholder="example@email.com">
+                        </div>
+                        
+                        <div>
+                            <label for="inquiry-type" class="block text-sm font-medium tea-primary mb-2">문의 유형</label>
+                            <select id="inquiry-type" name="inquiry-type" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-tea-primary focus:border-transparent">
+                                <option value="">선택해 주세요</option>
+                                <option value="class">수업 문의</option>
+                                <option value="tea">차 구매 문의</option>
+                                <option value="visit">방문 예약</option>
+                                <option value="other">기타 문의</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium tea-primary mb-2">문의 내용 *</label>
+                            <textarea id="message" name="message" rows="4" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-tea-primary focus:border-transparent resize-vertical" placeholder="궁금한 점이나 요청사항을 자세히 적어주세요"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-tea-primary text-white hover:bg-tea-primary/90 py-3 px-6 rounded-lg font-medium transition-colors">
+                            문의하기
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-tea-primary text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <img src="attached_assets/도림원 로고_1750859453144.png" alt="도림원 로고" class="w-12 h-12 rounded-lg object-cover">
+                        <div>
+                            <h3 class="text-xl font-bold">도림원</h3>
+                            <p class="tea-accent text-sm">한중차문화연구회</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-4">
+                        1991년부터 시작된 대표적인 보이차 전문 교육기관으로, 
+                        전통적인 차문화를 현대에 전수하고 있습니다.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">빠른 링크</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="text-gray-300 hover:text-white transition-colors text-sm">도림원 소개</a></li>
+                        <li><a href="#basics" class="text-gray-300 hover:text-white transition-colors text-sm">보이차 기초</a></li>
+                        <li><a href="#videos" class="text-gray-300 hover:text-white transition-colors text-sm">동영상 강의</a></li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-white transition-colors text-sm">문의하기</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">연락처</h4>
+                    <div class="space-y-2 text-sm">
+                        <p class="text-gray-300">전화: 051-645-8858</p>
+                        <p class="text-gray-300">이메일: Dorimwon@naver.com</p>
+                        <p class="text-gray-300">주소: 부산광역시 남구 대연동 수영로 225 3층</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-600 pt-8 text-center">
+                <p class="text-gray-400 text-sm">&copy; 2025 도림원 한중차문화연구회. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Active navigation highlighting
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const scrollPos = window.pageYOffset + 100;
+            
+            sections.forEach(section => {
+                const top = section.offsetTop;
+                const height = section.offsetHeight;
+                const id = section.getAttribute('id');
+                
+                if (scrollPos >= top && scrollPos < top + height) {
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    document.querySelector(`[href="#${id}"]`)?.classList.add('active');
+                }
+            });
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('문의가 접수되었습니다. 빠른 시일 내에 연락드리겠습니다.');
+        });
+    </script>
+</body>
+</html>
